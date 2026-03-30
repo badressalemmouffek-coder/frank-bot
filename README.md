@@ -29,6 +29,7 @@ Claude answers using only the retrieved context
          ↓
 Grounded, document-based response — no hallucination
 ```
+<img width="2805" height="1342" alt="image" src="https://github.com/user-attachments/assets/21b62283-50f2-4adb-b70b-a1cd448df542" />
 
 ---
 
@@ -48,6 +49,7 @@ frank-bot/
 └── docs/
     └── SETUP.md            # Deployment guide
 ```
+<img width="2742" height="1235" alt="image" src="https://github.com/user-attachments/assets/bc305a9a-6cee-41e5-915e-38bcaf1811b4" />
 
 ---
 
